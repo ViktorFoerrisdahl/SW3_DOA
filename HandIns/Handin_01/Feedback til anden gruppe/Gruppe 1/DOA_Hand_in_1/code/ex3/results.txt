@@ -1,0 +1,124 @@
+-----------------
+-O0 flag was used
+-----------------
+
+
+
+
+---------- Runtime test of Fragment #1 ----------
+N = 250
+Elapsed: 1 us / 0 ms
+
+N = 500
+Elapsed: 0 us / 0 ms
+
+N = 1000
+Elapsed: 1 us / 0 ms
+
+N = 2000
+Elapsed: 1 us / 0 ms
+
+N = 4000
+Elapsed: 2 us / 0 ms
+
+N = 8000
+Elapsed: 5 us / 0 ms
+
+N = 16000
+Elapsed: 10 us / 0 ms
+
+N = 32000
+Elapsed: 16 us / 0 ms
+
+N = 64000
+Elapsed: 33 us / 0 ms
+
+N = 128000
+Elapsed: 78 us / 0 ms
+
+
+
+
+---------- Runtime test of Fragment #2 ----------
+N = 250
+Elapsed: 40 us / 0 ms
+
+N = 500
+Elapsed: 124 us / 0 ms
+
+N = 1000
+Elapsed: 564 us / 0 ms
+
+N = 2000
+Elapsed: 1525 us / 1 ms
+
+N = 4000
+Elapsed: 6708 us / 6 ms
+
+N = 8000
+Elapsed: 23562 us / 23 ms
+
+N = 16000
+Elapsed: 85029 us / 85 ms
+
+N = 32000
+Elapsed: 333914 us / 333 ms
+
+N = 64000
+Elapsed: 1331616 us / 1331 ms
+
+N = 128000
+Elapsed: 5352049 us / 5352 ms
+
+
+
+
+---------- Runtime test of Fragment #3 ----------
+N = 250
+Elapsed: 5244 us / 5 ms
+
+N = 500
+Elapsed: 41689 us / 41 ms
+
+N = 1000
+Elapsed: 331261 us / 331 ms
+
+N = 2000
+Elapsed: 2667543 us / 2667 ms
+
+N = 4000
+Elapsed: 21617609 us / 21617 ms
+
+
+
+
+---------- Runtime test of Fragment #4 ----------
+N = 250
+Elapsed: 25 us / 0 ms
+
+N = 500
+Elapsed: 78 us / 0 ms
+
+N = 1000
+Elapsed: 207 us / 0 ms
+
+N = 2000
+Elapsed: 676 us / 0 ms
+
+N = 4000
+Elapsed: 2475 us / 2 ms
+
+N = 8000
+Elapsed: 9996 us / 9 ms
+
+N = 16000
+Elapsed: 42427 us / 42 ms
+
+N = 32000
+Elapsed: 165842 us / 165 ms
+
+N = 64000
+Elapsed: 660902 us / 660 ms
+
+N = 128000
+Elapsed: 2656758 us / 2656 ms
