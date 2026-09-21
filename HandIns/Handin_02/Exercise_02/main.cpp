@@ -1,6 +1,8 @@
 #include "stack.h"
 #include <iostream>
 #include <chrono>
+#include <cassert>
+#include <stdexcept>
 
 
 int main () 
@@ -38,7 +40,7 @@ int main ()
 
 
     // tilføjer 9999 ting mere og derved skulle antallet af elementer være 20000
-    for (auto i = 0; i < 9998; i++) 
+    for (auto i = 0; i < 9999; i++) 
     {
         minStack10000.push(i);
     }
@@ -59,5 +61,29 @@ int main ()
 
     std::cout << "Det tog " << us1.count() << " us at lave push, da vi skulle genallokere hele arrayet" << std::endl;
 
+    // Check that resizing inserts exactly one value and preserves LIFO order.
+    stack small(1);
+    small.push(10);
+    small.push(20);
+    assert(small.size() == 2);
+    assert(small.sizeOfStack() == 2);
+    assert(small.top() == 20);
+    small.pop();
+    assert(small.top() == 10);
+    small.pop();
+    assert(small.size() == 0);
+    bool thrown = false;
+    try { small.pop(); }
+    catch (const std::out_of_range&) { thrown = true; }
+    assert(thrown);
+    thrown = false;
+    try { small.top(); }
+    catch (const std::out_of_range&) { thrown = true; }
+    assert(thrown);
+    thrown = false;
+    try { stack invalid(0); }
+    catch (const std::invalid_argument&) { thrown = true; }
+    assert(thrown);
+    std::cout << "Stack tests passed!" << std::endl;
     return 0;
 }

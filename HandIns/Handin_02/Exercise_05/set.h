@@ -111,7 +111,8 @@ public:
 
         while (!data.empty())
         {
-            if (other.setContains(data.top())) // Tilføjer kun værdien hvis den også findes i det andet Set
+            T value = data.top();
+            if (other.setContains(value)) // Tilføjer kun værdien hvis den også findes i det andet Set
             {
                 result.addItem(data.top());
             }
@@ -135,7 +136,8 @@ public:
 
         while (!data.empty())
         {
-            if (!other.setContains(data.top())) // Tilføjer kun værdien hvis den ikke findes i det andet Set
+            T value = data.top();
+            if (!other.setContains(value)) // Tilføjer kun værdien hvis den ikke findes i det andet Set
             {
                 result.addItem(data.top());
             }

@@ -224,6 +224,25 @@ void test_invalid_operations()
     assert(list.find_kth(0) == 10);
 }
 
+void test_generic_types()
+{
+    List<std::string> list;
+    list.push_front("apple");
+    list.push_back("pear");
+    list.insert("banana", 1);
+    assert(list.size() == 3);
+    assert(list.find_kth(1) == "banana");
+    assert(list.contains("pear"));
+    assert(!list.contains("orange"));
+    std::string removed = list.remove(1);
+    assert(removed == "banana");
+    removed = list.pop_front();
+    assert(removed == "apple");
+    removed = list.pop_back();
+    assert(removed == "pear");
+    assert(list.empty());
+}
+
 int main()
 {
     std::cout << "Testing empty list..." << std::endl;
@@ -256,6 +275,10 @@ int main()
 
     std::cout << "Testing reverse..." << std::endl;
     test_reverse();
+    std::cout << "PASS" << std::endl;
+
+    std::cout << "Testing generic types..." << std::endl;
+    test_generic_types();
     std::cout << "PASS" << std::endl;
 
     std::cout << "All tests passed! \n";

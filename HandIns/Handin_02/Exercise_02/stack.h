@@ -9,6 +9,9 @@ public:
  
     void pop();
     void push(int x);
+    int size() const { return head_; }
+    int sizeOfStack() const { return size_; }
+    int top() const;
 
 private:
     int size_;
