@@ -1,34 +1,33 @@
 #include <iostream>
 
+void printStars(int s)
+{
+    for (auto i = 0; i < s; i++)
+    {
+        std::cout << "*";
+    }
+    std::cout << std::endl;
+}
+
 void triangle(int m, int n)
 {
     if (m < n)
     {
-        for (auto i = 0; i < m; i++)
-        {
-            std::cout << "*";
-        }
-        std::cout << std::endl;
-        m++;
-        triangle(m, n);
+        printStars(m);
+        triangle(m + 1, n);
     }
-    else if (m == n)
+
+    if (m == n)
     {
-        for (auto j = 0; j < 2; j++)
-        {
-            for (auto i = 0; i < m; i++)
-            {
-                std::cout << "*";
-            }
-            std::cout << std::endl;
-        }
-        triangle(m,n);
+        printStars(m);
     }
+
+    printStars(m);
 }
 
 int main()
 {
-    triangle(2, 6);
+    triangle(1, 4);
 
     return 0;
 }
