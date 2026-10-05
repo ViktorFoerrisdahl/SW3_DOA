@@ -27,7 +27,7 @@ void triangle(int m, int n)
 
 int main()
 {
-    triangle(1, 4);
+    triangle(4, 4);
 
     return 0;
 }

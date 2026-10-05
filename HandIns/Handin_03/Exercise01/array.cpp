@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iterator>
+#include <cassert>
 
 #define TAL_VI_LEDER_EFTER 7
 #define TAL2_VI_LEDER_EFTER 200
@@ -22,60 +23,65 @@ bool search(int *arr, int size, int target)
     return search(arr + 1, size - 1, target);
 }
 
-int max(int *arr, int size, int currentMax)
+int max(int *arr, int size)
 {
-    if (size == 0)
+    assert(size > 0); // Stopper funktionen, hvis følgende er false og returnerer en fejlbesked. Der kan nemlig ikke findes en max af et tomt array
+
+    if (size == 1)
     {
-        return currentMax;
+        return arr[0];
     }
 
-    if (arr[0] > currentMax)
-    {
-        currentMax = arr[0];
-    }
+    int maxOfRest = max(arr + 1, size - 1);
 
     // Til step 4 test:
-    // std::cout << "arr[0] = " << arr[0] << " size = " << size << " currentMax: " << currentMax << std::endl;
+    // std::cout << "arr[0] = " << arr[0] << "   size = " << size << "   maxOfRest: " << maxOfRest << std::endl;
 
-    return max(arr + 1, size - 1, currentMax);
+    if (arr[0] > maxOfRest)
+    {
+        return arr[0];
+    }
+    return maxOfRest;
 }
 
-int min(int *arr, int size, int currentMin)
+int min(int *arr, int size)
 {
-    if (size == 0)
+    assert(size > 0); // Stopper funktionen, hvis følgende er false og returnerer en fejlbesked. Der kan nemlig ikke findes en max af et tomt array
+
+    if (size == 1)
     {
-        return currentMin;
+        return arr[0];
     }
 
-    if (arr[0] < currentMin)
-    {
-        currentMin = arr[0];
-    }
+    int minOfRest = min(arr + 1, size - 1);
 
     // Til step 4 test:
-    // std::cout << "arr[0] = " << arr[0] << " size = " << size << " currentMin: " << currentMin << std::endl;
+    std::cout << "arr[0] = " << arr[0] << "   size = " << size << "   minOfRest: " << minOfRest << std::endl;
 
-    return min(arr + 1, size - 1, currentMin);
+    if (arr[0] < minOfRest)
+    {
+        return arr[0];
+    }
+    return minOfRest;
 }
-
 
 int main()
 {
     int array[10] = {-89, 1, 2, 3, 4, 200, 200000, 213123, 132323, 10000000};
 
-    std::cout << "findes tallet " << TAL_VI_LEDER_EFTER << " i vores array? " << std::boolalpha << search(array, std::size(array) , TAL_VI_LEDER_EFTER);
+    std::cout << "findes tallet " << TAL_VI_LEDER_EFTER << " i vores array? " << std::boolalpha << search(array, std::size(array), TAL_VI_LEDER_EFTER);
 
     std::cout << std::endl;
 
-    std::cout << "findes tallet " << TAL2_VI_LEDER_EFTER << " i vores array? " << std::boolalpha << search(array, std::size(array) , TAL2_VI_LEDER_EFTER);
+    std::cout << "findes tallet " << TAL2_VI_LEDER_EFTER << " i vores array? " << std::boolalpha << search(array, std::size(array), TAL2_VI_LEDER_EFTER);
 
     std::cout << std::endl;
 
-    std::cout << "Max i vores array er:  " << max(array, std::size(array), array[0]);
+    // std::cout << "Max i vores array er:  " << std::endl << max(array, std::size(array));
 
     std::cout << std::endl;
 
-    std::cout << "Min i vores array er:  " << min(array, std::size(array), array[0]);
+    std::cout << "Min i vores array er:  " << std::endl << min(array, std::size(array));
 
     return 0;
 }
