@@ -1,17 +1,19 @@
 #ifndef MIN_HEAP_H
 #define MIN_HEAP_H
 
-using namespace std;
+#include <iostream>
 
 template <typename T>
-struct Node {
+struct Node
+{
     T data;
-    Node* parent;
-    Node* left;
-    Node* right;
-    
+    Node *parent;
+    Node *left;
+    Node *right;
+
     // Constructor
-    Node(T value) {
+    Node(T value)
+    {
         data = value;
         left = right = nullptr;
     }
@@ -34,7 +36,14 @@ public:
      */
     void insert(const T &x)
     {
-        // YOUR CODE GOES HERE
+        Node<T>* newNode = new Node<T>(x); //Allokere plads til vores nye node og danner den
+
+        if (root == nullptr) //hvis heapen er tom dannes vores nye root
+        {
+            root = newNode;
+        }
+
+
     }
 
     /**
@@ -54,7 +63,7 @@ public:
      */
     bool isEmpty() const
     {
-        // YOUR CODE GOES HERE
+        return root == nullptr;
     }
 
     /**
@@ -64,8 +73,18 @@ public:
      */
     T peek()
     {
-        // YOUR CODE GOES HERE
+        if (root == nullptr)
+        {
+            throw std::runtime_error("Heapen er tom og derfor findes ingen minimum / top element :( \n");
+        }
+        else
+        {
+            return root->data;
+        }
     }
+
+private:
+    Node<T>* root = nullptr;
 };
 
 #endif
